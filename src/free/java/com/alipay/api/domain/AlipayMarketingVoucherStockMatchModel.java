@@ -1,0 +1,48 @@
+package com.alipay.api.domain;
+
+import com.alipay.api.AlipayObject;
+import com.alipay.api.internal.mapping.ApiField;
+import com.alipay.api.internal.mapping.ApiListField;
+
+import java.util.List;
+
+/**
+ * 外部商户券码券核查
+ *
+ * @author auto create
+ * @since 1.0, 2018-02-02 14:44:46
+ */
+public class AlipayMarketingVoucherStockMatchModel extends AlipayObject {
+
+	private static final long serialVersionUID = 6225482687127549553L;
+
+	/**
+	 * 待核查券码列表，商户体系内可兑换使用的券码
+	 */
+	@ApiListField("entity_list")
+	@ApiField("string")
+	private List<String> entityList;
+
+	/**
+	 * 库存ID,创建库存时返回
+	 */
+	@ApiField("stock_id")
+	private String stockId;
+
+	public List<String> getEntityList() {
+		return this.entityList;
+	}
+
+	public void setEntityList(List<String> entityList) {
+		this.entityList = entityList;
+	}
+
+	public String getStockId() {
+		return this.stockId;
+	}
+
+	public void setStockId(String stockId) {
+		this.stockId = stockId;
+	}
+
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingTop="20dp"
+    android:paddingRight="8dp">
+
+    <allen.town.focus_common.views.AccentTextInputLayout
+        android:id="@+id/serverUrlTextInput"
+        style="?attr/textInputOutlinedDenseStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <allen.town.focus_common.views.CursorAccentTextInputEditText
+            android:id="@+id/ordId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/input_ordid"
+            android:imeOptions="actionNext|flagNoFullscreen"
+            android:inputType="textNoSuggestions"
+            android:lines="1"
+            android:textSize="16sp" />
+
+    </allen.town.focus_common.views.AccentTextInputLayout>
+
+
+    <allen.town.focus_common.views.AccentMaterialButton
+        android:id="@+id/restore"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/restore_purchase"
+        android:textAllCaps="false" />
+</LinearLayout>
