@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package allen.town.focus.reader.iap
+package allen.town.focus_purchase.iap
 
 import allen.town.core.service.GooglePayService
-import allen.town.core.service.PayService
-import allen.town.focus.reader.iap.BillingRepository.SubSku.CONSUMABLE_SKUS
-import allen.town.focus.reader.iap.BillingRepository.SubSku.INAPP_SKUS
-import allen.town.focus.reader.iap.BillingRepository.SubSku.SUBS_SKUS
+import allen.town.focus.reader.iap.Security
+import allen.town.focus_purchase.iap.BillingRepository.SubSku.CONSUMABLE_SKUS
+import allen.town.focus_purchase.iap.BillingRepository.SubSku.INAPP_SKUS
+import allen.town.focus_purchase.iap.BillingRepository.SubSku.SUBS_SKUS
 import allen.town.focus_common.util.Timber
 import allen.town.focus_purchase.MyBaseApp
 import allen.town.focus_purchase.iap.util.IabResult
