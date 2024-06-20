@@ -1,4 +1,4 @@
-package allen.town.focus_purchase.data.db;
+package allen.town.focus_purchase.db;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -12,6 +12,8 @@ import allen.town.focus.reader.data.db.GooglePlayInAppPurchase;
 import allen.town.focus.reader.data.db.GooglePlayPurchase;
 import allen.town.focus.reader.data.db.GooglePlaySkuDetails;
 import allen.town.focus_common.util.Timber;
+import allen.town.focus_purchase.data.db.AlipayPurchase;
+import allen.town.focus_purchase.data.db.DbOpenHelper;
 import rx.schedulers.Schedulers;
 
 public class BaseDb {

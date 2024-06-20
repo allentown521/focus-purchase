@@ -14,7 +14,8 @@ object GooglePlayInAppTable {
     @JvmStatic
     fun onUpdate(sQLiteDatabase: SQLiteDatabase, i: Int, i2: Int) {
         if (i < 26) {
-            sQLiteDatabase.execSQL(TableBuilder(TABLE_NAME)
+            sQLiteDatabase.execSQL(
+                TableBuilder(TABLE_NAME)
                 .addTextColumn(INAPP_TYPE)
                 .build())
         }
@@ -25,7 +26,8 @@ object GooglePlayInAppTable {
 
     @JvmStatic
     fun onCreate(sQLiteDatabase: SQLiteDatabase) {
-        sQLiteDatabase.execSQL(TableBuilder(TABLE_NAME)
+        sQLiteDatabase.execSQL(
+            TableBuilder(TABLE_NAME)
             .addTextColumn(INAPP_TYPE)
             .addTextColumn(INAPP_ID)
                 .build())
