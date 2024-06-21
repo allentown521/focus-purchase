@@ -10,7 +10,6 @@ import allen.town.focus_purchase.data.db.table.GooglePlayPurchaseTable
 import allen.town.focus_purchase.data.db.table.GooglePlaySkuDetailsTable
 import android.content.Context
 import com.wyjson.router.GoRouter
-import org.apache.commons.lang.ArrayUtils
 import java.lang.RuntimeException
 import java.lang.reflect.InvocationTargetException
 
@@ -84,10 +83,7 @@ class DbOpenHelper(context: Context?) : SQLiteOpenHelper(
             return if (sourceMergeTables == null) {
                 tables
             } else {
-                ArrayUtils.addAll(
-                    tables,
-                    sourceMergeTables
-                ) as Array<Class<*>>
+                tables + sourceMergeTables
             }
         }
 
