@@ -1,25 +1,15 @@
 package allen.town.focus_purchase.iap;
 
-import android.content.Context;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.android.billingclient.api.BillingClient;
-import com.android.billingclient.api.Purchase;
-import com.android.billingclient.api.PurchaseHistoryRecord;
-import com.android.billingclient.api.PurchaseHistoryResponseListener;
-import com.android.billingclient.api.PurchasesResponseListener;
 import com.android.billingclient.api.SkuDetails;
-import com.wyjson.router.GoRouter;
 
 import java.util.List;
 
-import allen.town.core.service.GooglePayService;
-import allen.town.core.service.PayService;
 import allen.town.focus_common.util.Timber;
 import rx.Observable;
 import rx.Subscriber;
-import rx.schedulers.Schedulers;
 
 public class SupporterManager {
 
