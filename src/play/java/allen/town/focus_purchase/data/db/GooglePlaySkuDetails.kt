@@ -1,6 +1,6 @@
-package allen.town.focus.reader.data.db
+package allen.town.focus_purchase.data.db
 
-import allen.town.focus.reader.data.db.table.GooglePlaySkuDetailsTable
+import allen.town.focus_purchase.data.db.table.GooglePlaySkuDetailsTable
 import allen.town.focus_common.util.Timber
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase

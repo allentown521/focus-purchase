@@ -19,7 +19,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    api "com.android.billingclient:billing:6.1.0"
+    playApi "com.android.billingclient:billing:6.1.0"
     implementation "com.squareup.sqlbrite:sqlbrite:1.1.2"
     //                                       👇 依赖协程核心库
 //    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines"

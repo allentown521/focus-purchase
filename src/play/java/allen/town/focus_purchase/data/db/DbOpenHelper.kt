@@ -1,13 +1,13 @@
 package allen.town.focus_purchase.data.db
 
 import allen.town.core.service.PayService
-import allen.town.focus.reader.data.db.table.AlipayPurchaseTable
+import allen.town.focus_purchase.data.db.table.AlipayPurchaseTable
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteDatabase.CursorFactory
 import android.database.sqlite.SQLiteDatabase
-import allen.town.focus.reader.data.db.table.GooglePlayInAppTable
-import allen.town.focus.reader.data.db.table.GooglePlayPurchaseTable
-import allen.town.focus.reader.data.db.table.GooglePlaySkuDetailsTable
+import allen.town.focus_purchase.data.db.table.GooglePlayInAppTable
+import allen.town.focus_purchase.data.db.table.GooglePlayPurchaseTable
+import allen.town.focus_purchase.data.db.table.GooglePlaySkuDetailsTable
 import android.content.Context
 import com.wyjson.router.GoRouter
 import org.apache.commons.lang.ArrayUtils

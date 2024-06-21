@@ -16,7 +16,7 @@ import java.util.List;
 
 import allen.town.core.service.GooglePayService;
 import allen.town.core.service.PayService;
-import allen.town.focus.reader.data.db.table.GooglePlayInAppTable;
+import allen.town.focus_purchase.data.db.table.GooglePlayInAppTable;
 import allen.town.focus_common.util.Timber;
 import allen.town.focus_purchase.MyBaseApp;
 import allen.town.focus_purchase.iap.util.IabException;

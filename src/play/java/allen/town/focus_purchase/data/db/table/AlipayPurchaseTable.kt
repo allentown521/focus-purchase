@@ -1,4 +1,4 @@
-package allen.town.focus.reader.data.db.table
+package allen.town.focus_purchase.data.db.table
 
 import allen.town.focus_purchase.data.db.TableBuilder
 import android.database.sqlite.SQLiteDatabase
@@ -26,7 +26,8 @@ object AlipayPurchaseTable {
 
     @JvmStatic
     fun onCreate(sQLiteDatabase: SQLiteDatabase) {
-        sQLiteDatabase?.execSQL(TableBuilder(TABLE_NAME)
+        sQLiteDatabase?.execSQL(
+            TableBuilder(TABLE_NAME)
                 .addTextColumn(EXPIRED_TIME)
                 .addTextColumn(ORDER_ID)
                 .addTextColumn(SUB_ID)

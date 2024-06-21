@@ -1,4 +1,4 @@
-package allen.town.focus.reader.data.db.table
+package allen.town.focus_purchase.data.db.table
 
 import allen.town.focus_purchase.data.db.TableBuilder
 import android.database.sqlite.SQLiteDatabase
@@ -32,7 +32,8 @@ object GooglePlaySkuDetailsTable {
 
     @JvmStatic
     fun onCreate(sQLiteDatabase: SQLiteDatabase) {
-        sQLiteDatabase.execSQL(TableBuilder(TABLE_NAME)
+        sQLiteDatabase.execSQL(
+            TableBuilder(TABLE_NAME)
                 .addTextColumn(SKU, 4)
                 .addPrimaryKeyColumn(SKU)
                 .addTextColumn(PRICE)

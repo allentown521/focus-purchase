@@ -1,7 +1,6 @@
 package allen.town.focus.reader.data.db
 
-import allen.town.focus.reader.data.db.table.AlipayPurchaseTable
-import allen.town.focus.reader.data.db.table.GooglePlayInAppTable
+import allen.town.focus_purchase.data.db.table.GooglePlayInAppTable
 import allen.town.focus_common.util.Timber
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
