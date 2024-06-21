@@ -3,7 +3,6 @@ package allen.town.focus_purchase.ui
 import allen.town.core.service.AliPayService
 import allen.town.core.service.GooglePayService
 import allen.town.core.service.PayService
-import allen.town.focus.reader.data.db.table.GooglePlayInAppTable
 import allen.town.focus_purchase.alipay.AliPayEntry
 import allen.town.focus_purchase.alipay.AliPayServiceWrap.tradeWithHBService
 import allen.town.focus_common.util.EntityDateUtils
@@ -12,6 +11,7 @@ import allen.town.focus_common.util.Timber
 import allen.town.focus_common.views.AccentMaterialDialog
 import allen.town.focus_purchase.MyBaseApp
 import allen.town.focus_purchase.R
+import allen.town.focus_purchase.data.db.table.GooglePlayInAppTable
 import allen.town.focus_purchase.iap.SupporterException
 import android.app.Dialog
 import android.content.Context

@@ -1,6 +1,5 @@
 package allen.town.focus_purchase.iap.util;
 
-import com.android.billingclient.api.BillingClient;
 
 
 public class IabResult {
@@ -21,7 +20,7 @@ public class IabResult {
     }
 
     public boolean isSuccess() {
-        return this.mResponse == BillingClient.BillingResponseCode.OK;
+        return this.mResponse == 0;
     }
 
     public boolean isFailure() {

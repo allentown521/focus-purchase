@@ -3,7 +3,6 @@ package allen.town.focus_purchase
 import allen.town.core.service.AliPayService
 import allen.town.core.service.GooglePayService
 import allen.town.core.service.PayService
-import allen.town.focus.reader.iap.util.GooglePayUtil
 import allen.town.focus_common.util.EntityDateUtils
 import allen.town.focus_common.util.Timber
 import allen.town.focus_purchase.MyBaseApp.getDb
@@ -12,6 +11,7 @@ import allen.town.focus_purchase.alipay.AliPayServiceWrap
 import allen.town.focus_purchase.data.db.table.GooglePlayInAppTable
 import allen.town.focus_purchase.iap.SupporterException
 import allen.town.focus_purchase.iap.SupporterManager
+import allen.town.focus_purchase.iap.util.GooglePayUtil
 import allen.town.focus_purchase.ui.AliPayFragment
 import android.content.Context
 import androidx.fragment.app.FragmentActivity
@@ -24,7 +24,7 @@ import rx.Observable
 import rx.Subscriber
 import rx.schedulers.Schedulers
 
-class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
+class ChinaPaySupporterManager(val context: Context) : SupporterManager() {
 
 
     override fun restoreTip(): Int {
@@ -72,7 +72,7 @@ class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
     }
 
     override fun getExpriedDate(): String? {
-        val aliPayEntry = MyBaseApp.getDb(supporterHelper.mContext!!).alipayPurchase().entry()
+        val aliPayEntry = MyBaseApp.getDb(context!!).alipayPurchase().entry()
         return aliPayEntry?.run {
             try {
                 return EntityDateUtils.timeStamp2Date(aliPayEntry.expiredTime?.toLong() ?: 0)
@@ -112,7 +112,7 @@ class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
                 if (GoRouter.getInstance().getService(AliPayService::class.java)!!.getRemoveAdPrice().toFloat() == totalAmount?.toFloat()) {
                     Timber.i("is alipay remove ad")
                     GoRouter.getInstance().getService(PayService::class.java)!!.setRemoveAdPurchase(true)
-                    getDb(supporterHelper.mContext!!).googlePlayInAppPurchase
+                    getDb(context!!).googlePlayInAppPurchase
                         .update(GooglePlayInAppTable.TYPE_REMOVE_ADS, ordId)
                     subscriber.onNext(true)
                     subscriber.onCompleted()
@@ -127,7 +127,7 @@ class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
                 } else {
                     Timber.i("alipay not expried")
                     GoRouter.getInstance().getService(PayService::class.java)!!.setPurchase(true)
-                    MyBaseApp.getDb(supporterHelper.mContext!!).alipayPurchase()
+                    MyBaseApp.getDb(context!!).alipayPurchase()
                         .update(expiredTime, ordId)
                     subscriber.onNext(true)
                     subscriber.onCompleted()
@@ -151,7 +151,7 @@ class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
     override fun isSupporter(): Observable<Boolean> {
         return Observable.create { subscriber: Subscriber<in Boolean?> ->
 
-            val purchased = MyBaseApp.getDb(supporterHelper.mContext!!).alipayPurchase().isCharged()
+            val purchased = MyBaseApp.getDb(context!!).alipayPurchase().isCharged()
             //查询付费状态并赋值
             Timber.i("alipay local is pro? $purchased")
             GoRouter.getInstance().getService(PayService::class.java)!!.setPurchase(purchased)
@@ -161,12 +161,12 @@ class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
 
             if (purchased) {
                 // 创建查询请求builder，设置请求参数
-                val ordId = MyBaseApp.getDb(supporterHelper.mContext!!).alipayPurchase().getOrdId()
+                val ordId = MyBaseApp.getDb(context!!).alipayPurchase().getOrdId()
                 restore(ordId).subscribeOn(Schedulers.io()).subscribe({
                     if (!it) {
                         //如果最终发现是已过期那么删除数据库
                         Timber.i("found alipay expired so delete")
-                        MyBaseApp.getDb(supporterHelper.mContext!!).alipayPurchase().delete()
+                        MyBaseApp.getDb(context!!).alipayPurchase().delete()
                     }
                 }, {
                     Timber.e(it, "query alipay failed")
@@ -183,7 +183,7 @@ class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
     override fun isRemoveAdsSupporter(): Observable<Boolean?>? {
         return Observable.create { subscriber: Subscriber<in Boolean?> ->
 
-            val isCharged = getDb(supporterHelper.mContext!!).googlePlayInAppPurchase.isCharged(GooglePlayInAppTable.TYPE_REMOVE_ADS)
+            val isCharged = getDb(context!!).googlePlayInAppPurchase.isCharged(GooglePlayInAppTable.TYPE_REMOVE_ADS)
             GoRouter.getInstance().getService(PayService::class.java)!!.setRemoveAdPurchase(isCharged)
 
             //查询本地付费状态并赋值
@@ -192,12 +192,12 @@ class ChinaPaySupporterManager(context: Context) : SupporterManager(context) {
 
             if (isCharged) {
                 // 创建查询请求builder，设置请求参数
-                val ordId = MyBaseApp.getDb(supporterHelper.mContext!!).getGooglePlayInAppPurchase().getOrdId()
+                val ordId = MyBaseApp.getDb(context!!).getGooglePlayInAppPurchase().getOrdId()
                 restore(ordId).subscribeOn(Schedulers.io()).subscribe({
                     if (!it) {
                         //如果最终发现是已过期那么删除数据库
                         Timber.i("found alipay expired so delete")
-                        MyBaseApp.getDb(supporterHelper.mContext!!).getGooglePlayInAppPurchase().delete(GooglePlayInAppTable.TYPE_REMOVE_ADS)
+                        MyBaseApp.getDb(context!!).getGooglePlayInAppPurchase().delete(GooglePlayInAppTable.TYPE_REMOVE_ADS)
                     }
                 }, {
                     Timber.e(it, "query alipay failed")

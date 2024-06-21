@@ -15,11 +15,6 @@ object SupporterManagerWrap {
      */
     @JvmStatic
     fun getSupporterManger(context: Context): SupporterManager {
-        if (GoRouter.getInstance().getService(PayService::class.java)!!.isAliPay()) {
-            return ChinaPaySupporterManager(context)
-        }else {
-            return SupporterManager(context)
-        }
-
+        return SupporterManager(context)
     }
 }

@@ -1,6 +1,5 @@
 package allen.town.focus_purchase.iap
 
-import allen.town.focus_purchase.ChinaPaySupporterManager
 import android.content.Context
 
 
@@ -13,6 +12,6 @@ object SupporterManagerWrap {
      */
     @JvmStatic
     fun getSupporterManger(context: Context): SupporterManager {
-        return ChinaPaySupporterManager(context)
+        return SupporterManager()
     }
 }

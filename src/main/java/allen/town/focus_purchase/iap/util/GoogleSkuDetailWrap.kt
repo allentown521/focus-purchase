@@ -1,4 +1,4 @@
-package allen.town.focus.reader.iap.util
+package allen.town.focus_purchase.iap.util
 
 import androidx.annotation.Keep
 
