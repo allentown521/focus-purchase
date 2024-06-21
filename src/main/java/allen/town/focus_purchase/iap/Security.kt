@@ -35,7 +35,6 @@ package allen.town.focus.reader.iap
  * frauds.
  */
 import allen.town.core.service.GooglePayService
-import allen.town.core.service.PayService
 import android.text.TextUtils
 import android.util.Base64
 import android.util.Log
